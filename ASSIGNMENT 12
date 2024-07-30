@@ -1,0 +1,143 @@
+1. HashTable for Bank Details
+java
+Copy code
+import java.util.Hashtable;
+
+public class BankDetails {
+    public static void main(String[] args) {
+        
+        Hashtable<Integer, String> bankDetails = new Hashtable<>();
+
+        bankDetails.put(101, "Alice Johnson");
+        bankDetails.put(102, "Bob Smith");
+        bankDetails.put(103, "Carol Williams");
+
+        
+        System.out.println("Size of HashTable: " + bankDetails.size());
+
+       
+        bankDetails.clear();
+        System.out.println("HashTable cleared.");
+        System.out.println("Size of HashTable after clearing: " + bankDetails.size());
+    }
+}
+2. Employee Record using Map Interface
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+
+public class EmployeeRecord {
+    public static void main(String[] args) {
+        
+        Map<Integer, String> employees = new HashMap<>();
+
+        employees.put(1, "John Doe");
+        employees.put(2, "Jane Doe");
+
+        System.out.println("Is the map empty? " + employees.isEmpty());
+
+        employees.remove(1);
+        System.out.println("Employee with ID 1 removed.");
+
+        employees.clear();
+        System.out.println("Map cleared.");
+        System.out.println("Is the map empty now? " + employees.isEmpty());
+    }
+}
+3. Simple Generics Class for Sorting Values
+java
+Copy code
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class GenericSorter<T extends Comparable<T>> {
+
+    private List<T> list;
+
+    public GenericSorter(List<T> list) {
+        this.list = list;
+    }
+
+    public void sort() {
+        Collections.sort(list);
+    }
+
+    public void display() {
+        for (T item : list) {
+            System.out.println(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> integerList = Arrays.asList(5, 3, 8, 1);
+        GenericSorter<Integer> integerSorter = new GenericSorter<>(integerList);
+        System.out.println("Integer list before sorting:");
+        integerSorter.display();
+        integerSorter.sort();
+        System.out.println("Integer list after sorting:");
+        integerSorter.display();
+
+        List<String> stringList = Arrays.asList("Banana", "Apple", "Cherry");
+        GenericSorter<String> stringSorter = new GenericSorter<>(stringList);
+        System.out.println("String list before sorting:");
+        stringSorter.display();
+        stringSorter.sort();
+        System.out.println("String list after sorting:");
+        stringSorter.display();
+    }
+}
+4. Using ListIterator to Append Symbol and Print in Reverse Order
+java
+Copy code
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class ListManipulator {
+    public static void main(String[] args) {
+        LinkedList<String> list = new LinkedList<>();
+        list.add("C");
+        list.add("A");
+        list.add("E");
+        list.add("B");
+        list.add("D");
+        list.add("F");
+
+        // Use ListIterator to append + symbol to each element
+        ListIterator<String> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            iterator.set(element + "+");
+        }
+
+      
+        System.out.println("Elements in reverse order:");
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+    }
+}
+5. Arithmetic Operations with Exception Handling
+java
+Copy code
+public class ArithmeticOperations {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+        
+        try {
+            int result = divide(a, b);
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+    }
+
+    public static int divide(int x, int y) {
+        if (y == 0) {
+            throw new ArithmeticException("Cannot divide by zero.");
+        }
+        return x / y;
+    }
+}
