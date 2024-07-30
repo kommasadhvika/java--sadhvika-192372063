@@ -1,0 +1,136 @@
+1. 1. Using the concepts of thread with implementing Runnable interface in Java to find
+whether a given number is prime or not.
+Sample Input : 5
+Sample Output : 5 is Prime
+Code:
+class PrimeChecker implements Runnable {
+ private int number;
+ PrimeChecker(int number) {
+ this.number = number;
+ }
+ @Override
+ public void run() {
+ if (isPrime(number)) {
+ System.out.println(number + " is Prime");
+ } else {
+ System.out.println(number + " is not Prime");
+ }
+ }
+ private boolean isPrime(int num) {
+ if (num <= 1) {
+ return false;
+ }
+ for (int i = 2; i <= Math.sqrt(num); i++) {
+ if (num % i == 0) {
+ return false;
+ }
+ }
+ return true;
+ }
+}
+public class Main {
+ public static void main(String[] args) {
+ int inputNumber = 5;
+ PrimeChecker primeChecker = new PrimeChecker(inputNumber);
+ Thread thread = new Thread(primeChecker);
+ thread.start();
+ }
+}
+Output
+2. Generate a Java code to handle Exceptions such as Arithmetic Exception,
+ArrayIndexOutOfBoundsException, NullPointerException using Multi-Catch Statements.
+Code:
+public class MultiCatchExample {
+ public static void main(String[] args) {
+ try {
+ int[] numbers = {1, 2, 3};
+ int result = numbers[5] / 0;
+ System.out.println("Result: " + result);
+ } catch (ArithmeticException | ArrayIndexOutOfBoundsException |
+NullPointerException e) {
+ System.out.println("Exception caught: " + e);
+ }
+ }
+}
+Output:
+3. Generate a Java Code to Write and Read the string “Computer Science and Engineering”
+using FileWriter and FileReader Class.
+Code:
+package com.mycompany.progg;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+public class Progg {
+ public static void main(String[] args) {
+ String data = "Computer Science and Engineering";
+ String filename = "output.txt";
+ // Writing to the file
+ try (FileWriter writer = new FileWriter(filename)) {
+ writer.write(data);
+ System.out.println("Data written to file: " + data);
+ } catch (IOException e) {
+ System.out.println("An error occurred while writing to the file.");
+ e.printStackTrace();
+ }
+ // Reading from the file
+ try (FileReader reader = new FileReader(filename)) {
+ int character;
+ StringBuilder readData = new StringBuilder();
+ while ((character = reader.read()) != -1) {
+ readData.append((char) character);
+ }
+ System.out.println("Data read from file: " + readData.toString());
+ } catch (IOException e) {
+ System.out.println("An error occurred while reading from the file.");
+ e.printStackTrace();
+ }
+ }
+}
+Output:
+4. Create a java program to construct the volume of Box using default constructor method
+Code:
+class Box {
+ double length;
+ double width;
+ double height;
+ Box() {
+ length = 1.0;
+ width = 1.0;
+ height = 1.0;
+ }
+ double calculateVolume() {
+ return length * width * height;
+ }
+}
+public class Main {
+ public static void main(String[] args) {
+ Box myBox = new Box();
+ System.out.println("Volume of the Box: " + myBox.calculateVolume());
+ }
+}
+Output:
+5. 5. Accept the string “Welcome to Saveetha university” from the user and perform the
+following operations by writing a suitable Java code.
+i) Replace any word in the given String
+ii) Find the length
+iii)Uppercase Conversion
+Code:
+import java.util.Scanner;
+public class StringOperations {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ System.out.println("Enter a string: ");
+ String inputString = scanner.nextLine();
+ // Replace any word in the given String
+ String replacedString = inputString.replace("Saveetha", "XYZ");
+ System.out.println("Replaced String: " + replacedString);
+ // Find the length
+ int length = inputString.length();
+ System.out.println("Length of the String: " + length);
+ // Uppercase Conversion
+ String upperCaseString = inputString.toUpperCase();
+ System.out.println("Uppercase String: " + upperCaseString);
+ scanner.close();
+ }
+}
+Outpu
