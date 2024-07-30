@@ -1,0 +1,129 @@
+
+1.Write a program to calculate the factorial of number using recursive function.
+Sample Input & Output:
+Enter the value of n: 6
+Sample Input & Output:
+The factorial of 6 is: 720
+CODE:
+import java.util.Scanner;
+public class FactorialCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+        int factorial = calculateFactorial(n);
+        System.out.println("The factorial of " + n + " is: " + factorial);
+    }
+    public static int calculateFactorial(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+}
+OUTPUT:
+ 
+
+2.Write a Program to Find the Nth Largest Number in a array.
+Sample Input:
+List  : {14, 67, 48, 23, 5, 62}
+N = 4
+Sample Output:
+4th Largest number: 23
+CODE:
+import java.util.Arrays;
+public class NthLargestNumber {
+    public static void main(String[] args) {
+        int[] arr = {14, 67, 48, 23, 5, 62};
+        int n = 4;
+        Arrays.sort(arr);
+        System.out.println(n + "th Largest number: " + arr[arr.length - n]);
+    }
+}
+OUTPUT:
+ 
+
+3. Write a program to convert the Binary to Decimal, Octal
+Sample Input:
+Given Number: 1101
+Sample Output:
+Decimal Number: 13
+
+CODE:
+import java.util.Scanner;
+public class BinaryToDecimalOctal {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a binary number: ");
+        String binaryString = scanner.nextLine();
+        int decimal = Integer.parseInt(binaryString, 2);
+        System.out.println("Decimal Number: " + decimal);
+        int decimalForOctal = Integer.parseInt(binaryString, 2);
+        String octalString = Integer.toOctalString(decimalForOctal);
+        System.out.println("Octal Number: " + octalString)
+        scanner.close();
+    }
+}
+OUTPUT:
+ 
+
+4. Write a program to find the number of special characters in the given statement
+Sample Input:
+Given statement: Modi Birthday @ September 17, #&$% is the wishes code for him.
+Sample Output:
+Number of special Characters: 5
+
+CODE:
+public class SpecialCharactersCounter {
+    public static void main(String[] args) {
+        String statement = "Modi Birthday @ September 17, #&$% is the wishes code for him.";
+        int specialCharCount = 0;
+
+        for (int i = 0; i < statement.length(); i++) {
+            if (!Character.isLetterOrDigit(statement.charAt(i)) && !Character.isWhitespace(statement.charAt(i))) {
+                specialCharCount++;
+            }
+        }
+
+        System.out.println("Number of Special Characters: " + specialCharCount);
+    }
+}
+OUTPUT:
+ 
+
+1.	5. Write a Program to Remove the Duplicate Items from a array.
+Sample Input:
+Enter the number of elements in array:7
+Enter element1:10
+Enter element2:20
+Enter element3:20
+Enter element4:30
+Enter element5:40
+Enter element6:40
+Enter element7:50
+Sample Output:
+Non-duplicate items:
+[10, 20, 30, 40, 50]
+
+CODE:
+import java.util.*;
+public class RemoveDuplicatesFromArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        Set<Integer> uniqueElements = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter element" + (i + 1) + ": ");
+            int num = scanner.nextInt();
+            arr[i] = num;
+            uniqueElements.add(num);
+        }
+        System.out.println("Non-duplicate items:");
+        System.out.println(uniqueElements);
+    }
+}
+OUTPUT:
+ 
